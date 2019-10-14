@@ -6,9 +6,9 @@ namespace _01_ex22
 {
     class Sword : GameItem
     {
-        private decimal length;
-        private TypeOfMetal typeOfMetal;
-        private WeaponCondition condition;
+        public readonly decimal length;
+        public readonly TypeOfMetal typeOfMetal;
+        public WeaponCondition condition;
         public Sword(string name, string description, decimal length,
             TypeOfMetal typeOfMetal, WeaponCondition condition) : base(name, 
                 description)

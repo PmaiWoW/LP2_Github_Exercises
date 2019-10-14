@@ -9,6 +9,8 @@ namespace _01_ex22
             GameItem sword1 = new Sword("Mythril Rapier", "A finely made " +
                 "Mythril Rapier.", 110, TypeOfMetal.Mythril, 
                 WeaponCondition.Sharpened);
+
+            Console.WriteLine($"{sword1.name}, {sword1.description}");
         }
     }
 }
