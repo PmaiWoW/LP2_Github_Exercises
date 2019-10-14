@@ -6,11 +6,14 @@ namespace _01_ex22
     {
         static void Main(string[] args)
         {
-            GameItem sword1 = new Sword("Mythril Rapier", "A finely made " +
-                "Mythril Rapier.", 110, TypeOfMetal.Mythril, 
+            Sword sword1 = new Sword("Mythril Rapier", "A finely made " +
+                "Mythril Rapier.", 110, TypeOfMetal.Mythril,
                 WeaponCondition.Sharpened);
 
-            Console.WriteLine($"{sword1.name}, {sword1.description}");
+            Console.WriteLine($"{sword1.name}\nDescription: " +
+                $"{sword1.description}\nLength(cm): {sword1.length}\n" +
+                $"Metal Type: {sword1.typeOfMetal}\nCondition: " +
+                $"{sword1.condition}");
         }
     }
 }
