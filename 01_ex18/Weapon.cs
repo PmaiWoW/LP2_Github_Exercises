@@ -15,8 +15,14 @@ namespace _01_ex18
             Durability = durability;
         }
 
-        int IComparable<Weapon>.CompareTo(Weapon w2)
-            => Convert.ToInt32(w2.AttackPower - AttackPower);
+        public int CompareTo(Weapon w2)
+        {
+            
+            if (w2 == null) return -1;
+            if (w2.AttackPower - AttackPower > 0) return 1;
+            if (w2.AttackPower - AttackPower < 0) return -1;
+            else return 0;
+        }
 
         public override string ToString() => $"Attack Power: {AttackPower}" +
             $"\nDurability: {Durability}";

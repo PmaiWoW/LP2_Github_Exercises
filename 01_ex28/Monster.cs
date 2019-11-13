@@ -12,26 +12,24 @@ namespace _01_ex28
         public double Health { get; set; }
         public int Strength { get; set; }
 
-        public Monster(MonsterType type, double health, int strength)
-        {
-            Type = type;
-            Health = health;
-            Strength = strength;
-
-        }
+        // public Monster(MonsterType type, double health, int strength)
+        // {
+        //     Type = type;
+        //     Health = health;
+        //     Strength = strength;
+        // }
 
         public static IEnumerable<Monster> CreateRandomMonsters(int n)
         {
-            Random rnd;
-            List<Monster> monsEnumerable = new List<Monster>();
-            for (int i = 0; i <= n; i++)
+            Random rnd = new Random();
+            Monster returnMonster = new Monster();
+            for (int i = 0; i < n; i++)
             {
-                rnd = new Random();
-                monsEnumerable.Add(new Monster(
-                    (MonsterType)rnd.Next(0, 3), rnd.NextDouble()*100,
-                    rnd.Next(0, MaxStrength)));
+                returnMonster.Type = (MonsterType)rnd.Next(0, 4);
+                returnMonster.Health = rnd.NextDouble()*MaxHealth;
+                returnMonster.Strength = rnd.Next(0, MaxStrength+1);
+                yield return returnMonster;
             }
-            return monsEnumerable;
         }
 
         public override string ToString() => $"Type: {Type}, " +

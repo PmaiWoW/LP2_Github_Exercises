@@ -10,7 +10,7 @@ namespace _01_ex18
             List<Weapon> weaponsList = new List<Weapon>()
             {
                 new Weapon(132.23f, 123.2f),
-                new Weapon(50.5f, 23.5f),
+                new Weapon(10.0f, 10.0f),
                 new Weapon(10.7f, 122.9f),
                 new Weapon(102.34f, 235.4f),
                 new Weapon(243.9f, 93.43f),

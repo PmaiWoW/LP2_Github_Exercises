@@ -8,7 +8,7 @@ namespace _01_ex28
         static void Main(string[] args)
         {
             IEnumerable<Monster> monsEnumerable = 
-                Monster.CreateRandomMonsters(20);
+                Monster.CreateRandomMonsters(5);
             foreach (Monster m in monsEnumerable) Console.WriteLine(m);
         }
     }
