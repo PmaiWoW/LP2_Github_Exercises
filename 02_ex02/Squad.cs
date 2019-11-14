@@ -62,10 +62,13 @@ namespace _02_ex02
             foreach (IUnit u in lst) UntLst.Add(u);
         }
 
-        public Squad(params Unit[] units)
+        public Squad(params IUnit[] units)
         {
             UntLst = new List<IUnit>();
             foreach (IUnit u in units) UntLst.Add(u);
         }
+
+        public override string ToString() => $"{UnitName} at " +
+            $"({Position.X:f1}, {Position.Y:f1}) with {Health:f1} HP";
     }
 }
