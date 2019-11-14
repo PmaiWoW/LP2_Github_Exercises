@@ -16,8 +16,9 @@ namespace _01_ex18
                 new Weapon(243.9f, 93.43f),
                 new Weapon(150.7f, 57.32f),
                 new Weapon(31.9f, 315.98f),
-                new Weapon(92.4f, 78.12f)
+                new Weapon(92.4f, 78.12f),
             };
+
             WeaponComparer wpnComp = new WeaponComparer();
 
             Console.WriteLine("Unsorted List:");
