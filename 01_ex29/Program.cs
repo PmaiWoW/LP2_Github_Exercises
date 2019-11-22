@@ -7,50 +7,46 @@ namespace _01_ex29
     {
         static void Main(string[] args)
         {
-            SortedSet<int> operationSet = new SortedSet<int>();
-            HashSet<int> firstSet = new HashSet<int>();
-            HashSet<int> secondSet = new HashSet<int>();
+            ISet<int> operationSet = new SortedSet<int>();
+            ICollection<int> firstSet = new HashSet<int>();
+            ICollection<int> secondSet = new HashSet<int>();
             string valueString = default;
 
-            while (valueString != "q" && valueString != "")
-            {
-                TryInsert(out valueString, firstSet, "first set");
-            }
-            valueString = default;
-
-            while (valueString != "q" && valueString != "")
-            {
-                TryInsert(out valueString, secondSet, "second set");
-            }
+            InsertValues(valueString, firstSet);
+            InsertValues(valueString, secondSet);
 
             // Operations
             // Operation 1 - Union
-            CopyFirstSetToOperationSet(firstSet, operationSet);
+            ResetOperationSet(firstSet, operationSet);
+
             Console.WriteLine("\nUnion of first set with second set:");
             operationSet.UnionWith(secondSet);
             foreach (int i in operationSet) Console.WriteLine(i);
 
             // Operation 2 - Intersection
-            CopyFirstSetToOperationSet(firstSet, operationSet);
+            ResetOperationSet(firstSet, operationSet);
+
             Console.WriteLine("\nIntersection of first set with second set:");
             operationSet.IntersectWith(secondSet);
             foreach (int i in operationSet) Console.WriteLine(i);
 
             // Operation 3 - Difference
-            CopyFirstSetToOperationSet(firstSet, operationSet);
+            ResetOperationSet(firstSet, operationSet);
+
             Console.WriteLine("\nDifference of first set and second set:");
             operationSet.ExceptWith(secondSet);
             foreach (int i in operationSet) Console.WriteLine(i);
 
             // Operation 4 - Symmetric Difference
-            CopyFirstSetToOperationSet(firstSet, operationSet);
+            ResetOperationSet(firstSet, operationSet);
+
             Console.WriteLine("\nSymmetric Difference of first set and " +
                 "second set:");
             operationSet.SymmetricExceptWith(secondSet);
             foreach (int i in operationSet) Console.WriteLine(i);
 
             // Operation 5 - Subset
-            CopyFirstSetToOperationSet(firstSet, operationSet);
+            ResetOperationSet(firstSet, operationSet);
             if (operationSet.IsSubsetOf(secondSet))
             {
                 Console.WriteLine("\nFirst set is a Subset of second set");
@@ -58,7 +54,7 @@ namespace _01_ex29
             else Console.WriteLine("\nFirst set isn't a Subset of second set");
 
             // Operation 6 - Superset
-            CopyFirstSetToOperationSet(firstSet, operationSet);
+            ResetOperationSet(firstSet, operationSet);
             if (operationSet.IsSupersetOf(secondSet))
             {
                 Console.WriteLine("\nFirst set is a Superset of second set");
@@ -67,28 +63,33 @@ namespace _01_ex29
                 "set");
         }
 
-        private static SortedSet<int> CopyFirstSetToOperationSet(HashSet<int> 
-            fSet, SortedSet<int> oSet)
+        private static ICollection<int> ResetOperationSet(
+            ICollection<int> fSet, ICollection<int> oSet)
         {
             oSet.Clear();
             foreach (int i in fSet) oSet.Add(i);
             return oSet;
         }
 
-        private static void TryInsert(out string s, HashSet<int> set, string n)
+        private static void InsertValues(string s, ICollection<int> collection)
         {
-            Console.WriteLine($"Insert int value for {n}" +
-                    $"(Q or enter nothing to stop insertion):");
-            s = Console.ReadLine();
+            Console.WriteLine("Insert int values for set (Enter Q or " +
+                "nothing to stop insertion):");
 
-            if (s.ToLower() != "q" && s != "")
+            while (s != "q" && s != "")
             {
-                if (Int32.TryParse(s, out int val))
+                s = Console.ReadLine();
+
+                if (s.ToLower() != "q" && s != "")
                 {
-                    set.Add(val);
+                    if (Int32.TryParse(s, out int val))
+                    {
+                        collection.Add(val);
+                    }
+                    else { Console.WriteLine("Value inserted is invalid."); }
                 }
-                else { Console.WriteLine("Value inserted is invalid."); }
             }
+            Console.WriteLine("Set insertion complete.\n");
         }
     }
 }

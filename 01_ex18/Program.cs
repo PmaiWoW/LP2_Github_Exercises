@@ -15,8 +15,9 @@ namespace _01_ex18
                 new Weapon(102.34f, 235.4f),
                 new Weapon(243.9f, 93.43f),
                 new Weapon(150.7f, 57.32f),
+                null,
                 new Weapon(31.9f, 315.98f),
-                new Weapon(92.4f, 78.12f),
+                new Weapon(92.4f, 78.12f)
             };
 
             WeaponComparer wpnComp = new WeaponComparer();
