@@ -5,22 +5,11 @@ namespace _02_ex31
 {
     class Program
     {
-        static Item item1 = new Item(ItemCategory.Weapon);
-        static Item item2 = new Item(ItemCategory.Cosmetic);
-        static Item item3 = new Item(ItemCategory.Healing);
-        //    new NPC(new Item(ItemCategory.Junk));
-        //    new NPC(new Item(ItemCategory.Sellable)),
-        //    new NPC(new Item(ItemCategory.Weapon)),
-        //    new NPC(new Item(ItemCategory.Junk)),
-        //    new NPC(null),
-        //    new NPC(new Item(ItemCategory.Junk)),
-        //    new NPC(new Item(ItemCategory.Cosmetic))
-
-        static NPC[] npcs = new NPC[3]
+        private static NPC[] npcs = new NPC[3]
         {
-            new NPC(item1),
-            new NPC(item2),
-            new NPC(item3)
+            new NPC(new Item(ItemCategory.Weapon)),
+            new NPC(new Item(ItemCategory.Cosmetic)),
+            new NPC(new Item(ItemCategory.Healing))
         };
 
         static void Main(string[] args)

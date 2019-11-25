@@ -6,9 +6,9 @@ namespace _02_ex31
 {
     class NPC
     {
-        private ICollection<Item> bag;
+        private IEnumerable<Item> bag;
 
-        public ICollection<Item> Bag => bag;
+        public IEnumerable<Item> Bag => bag;
 
         public NPC(Item item)
         {
