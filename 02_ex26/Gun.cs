@@ -8,16 +8,11 @@ namespace _02_ex26
     {
         private Bullet[] bullets;
 
-        Func<int, float, Bullet[], Bullet[]> newClip =(numBuls, cal, buls) =>
-        {
-            for (int i = 0; i < numBuls; i++) 
-                buls[i] = new Bullet() { Calibre = cal };
-            return buls;
-        };
-
         public Gun(float value, int numBullets, float calibre) : base(value)
         {
-            newClip(numBullets, calibre, bullets);
+            bullets = new Bullet[numBullets];
+            for (int i = 0; i < numBullets; i++)
+                bullets[i] = new Bullet() { Calibre = calibre };
         }
     }
 }

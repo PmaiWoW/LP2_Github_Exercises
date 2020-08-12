@@ -16,6 +16,6 @@ namespace _02_ex29
         PulsationTimingVariations,
         RadialVelocity,
         Transit,
-        TransitTimeVariations
+        TransitTimingVariations
     }
 }

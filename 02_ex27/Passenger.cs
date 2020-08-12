@@ -10,7 +10,7 @@ namespace _02_ex27
         public double Weight
         {
             get => weight;
-            set => value = value < 5 ? 5 : value;
+            set { weight = value < 5 ? 5 : value; }
         }
     }
 }

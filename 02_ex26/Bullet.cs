@@ -10,7 +10,7 @@ namespace _02_ex26
         public float Calibre
         {
             get => calibre;
-            set => calibre = value < 0.1f ? 0.1f : value;
+            set { calibre = value < 0.1f ? 0.1f : value; }
         }
     }
 }
